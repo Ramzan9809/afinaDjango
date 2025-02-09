@@ -2,6 +2,22 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 
+class Settings(models.Model):
+    name_site = models.CharField(max_length=30)
+    logo = models.ImageField(upload_to='images/')
+    email = models.CharField(max_length=100)
+    time_to_work = models.CharField(max_length=50)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    phone1 = models.CharField(max_length=20, help_text='+996 503 277 372')
+    phone2 = models.CharField(max_length=20, null=True, blank=True, help_text='+996 503 277 372')
+
+    def __str__(self):
+        return self.name_site
+
+    class Meta:
+        verbose_name_plural = 'Настройки'
+        verbose_name = 'настройки'  
+
 class Slider(models.Model):
     img = models.ImageField(upload_to='images/', verbose_name='Баннер', null=True, blank=True)
     on_title = models.CharField(max_length=30, verbose_name='Над заголовок')

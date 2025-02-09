@@ -42,43 +42,45 @@
             <div class="widget_header_wrapper clearfix">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-xl-3">
-                            <!-- site-branding -->
-                            <div class="site-branding ">
-                                <a class="home-link" href="index.html" title="Fablio" rel="home">
-                                    <img id="logo-img" width="88" class="img-fluid auto_size logo-img" src="images/logo-img.png" alt="logo-img">
-                                </a>
-                            </div><!-- site-branding end -->
-                        </div>
-                        <div class="col-xl-9">
-                            <!-- ttm-widget-header -->
-                            <div class="ttm-widget_header d-flex flex-row align-items-center justify-content-end">
-                                <!-- widget-info -->
-                                <div class="widget_info d-flex flex-row align-items-center justify-content-end">
-                                    <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-email-2"></i></div>
-                                    <div class="widget_content">
-                                        <p>Отправить Email</p>
-                                        <h3>afinafactory@mail.ru</h3>
-                                    </div>
-                                </div><!-- widget-info end -->
-                                <!-- widget-info -->
-                                <div class="widget_info d-flex flex-row align-items-center justify-content-end">
-                                    <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-clock"></i></div>
-                                    <div class="widget_content">
-                                        <p>Часы работы</p>
-                                        <h3>Пн-Сб 09:00 до 21:00</h3>
-                                    </div>
-                                </div><!-- widget-info end -->
-                                <!-- widget-info -->
-                                <div class="widget_info d-flex flex-row align-items-center justify-content-end">
-                                    <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-phone-call"></i></div>
-                                    <div class="widget_content">
-                                        <p>По вопросам</p>
-                                        <h3>+996 503 277 372</h3>
-                                    </div>
-                                </div><!-- widget-info end -->
-                            </div><!-- ttm-widget-header end -->
-                        </div>
+                        {% for set in settings %}
+                            <div class="col-xl-3">
+                                <!-- site-branding -->
+                                <div class="site-branding ">
+                                    <a class="home-link" href="index.html" title="Fablio" rel="home">
+                                        <img id="logo-img" width="88" class="img-fluid auto_size logo-img" src="{{ set.logo.url }}" alt="logo-img">
+                                    </a>
+                                </div><!-- site-branding end -->
+                            </div>
+                            <div class="col-xl-9">
+                                <!-- ttm-widget-header -->
+                                <div class="ttm-widget_header d-flex flex-row align-items-center justify-content-end">
+                                    <!-- widget-info -->
+                                    <div class="widget_info d-flex flex-row align-items-center justify-content-end">
+                                        <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-email-2"></i></div>
+                                        <div class="widget_content">
+                                            <p>Отправить Email</p>
+                                            <h3>{{ set.email }}</h3>
+                                        </div>
+                                    </div><!-- widget-info end -->
+                                    <!-- widget-info -->
+                                    <div class="widget_info d-flex flex-row align-items-center justify-content-end">
+                                        <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-clock"></i></div>
+                                        <div class="widget_content">
+                                            <p>Часы работы</p>
+                                            <h3>{{ set.time_to_work }}</h3>
+                                        </div>
+                                    </div><!-- widget-info end -->
+                                    <!-- widget-info -->
+                                    <div class="widget_info d-flex flex-row align-items-center justify-content-end">
+                                        <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-phone-call"></i></div>
+                                        <div class="widget_content">
+                                            <p>По вопросам</p>
+                                            <h3>{{ set.phone1 }}</h3>
+                                        </div>
+                                    </div><!-- widget-info end -->
+                                </div><!-- ttm-widget-header end -->
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
