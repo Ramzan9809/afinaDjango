@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -10,17 +11,17 @@
 <title>Fablio - HTML Template </title>
 
 <link rel="shortcut icon" href="images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/animate.css"/>
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
-<link rel="stylesheet" type="text/css" href="css/flaticon.css"/>
-<link rel="stylesheet" type="text/css" href="css/themify-icons.css"/>
-<link rel="stylesheet" type="text/css" href="css/slick.css">
-<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
-<link rel="stylesheet" type="text/css" href="css/shortcodes.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/megamenu.css"/>
-<link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/themify-icons.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/prettyPhoto.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/shortcodes.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/megamenu.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}"/>
 
 </head>
 
@@ -80,8 +81,8 @@
                                 <div class="site-navigation d-flex flex-row align-items-center justify-content-between">
                                     <!-- site-branding -->
                                     <div class="site-branding ">
-                                        <a class="home-link" href="index.html" title="Fablio" rel="home">
-                                            <img id="logo-img" height="37" width="138" class="img-fluid auto_size" src="images/logo-img.svg" alt="logo-img">
+                                        <a class="home-link" href="{% url "homepage" %}" title="Fablio" rel="home">
+                                            <img id="logo-img" height="37" width="138" class="img-fluid auto_size" src="images/logo-img.png" alt="logo-img">
                                         </a>
                                     </div><!-- site-branding end -->
                                     <div class="d-flex flex-row m-auto">
@@ -94,7 +95,7 @@
                                         <nav class="main-menu menu-mobile" id="menu">
                                             <ul class="menu">
                                                 <li class="mega-menu-item">
-                                                    <a href="contact-us.html#" class="mega-menu-link">Home</a>
+                                                    <a href="{% url "homepage" %}" class="mega-menu-link">Home</a>
                                                     <ul class="mega-submenu">
                                                         <li><a href="index.html">Homepage 1</a></li>
                                                         <li><a href="home-2.html">Homepage 2</a></li>
@@ -175,7 +176,7 @@
                             </div>
                             <div class="breadcrumb-wrapper">
                                 <span>
-                                    <a title="Homepage" href="index.html">Home</a>
+                                    <a title="Homepage" href="{% url "homepage" %}">Home</a>
                                 </span>
                                 <span>Contact Us</span>
                             </div>
@@ -558,18 +559,18 @@
 
 
     <!-- Javascript -->
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/jquery-migrate-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script> 
-    <script src="js/jquery.easing.js"></script> 
-    <script src="js/jquery-waypoints.js"></script>    
-    <script src="js/jquery-validate.js"></script> 
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/numinate.min.js"></script>
-    <script src="js/imagesloaded.min.js"></script>
-    <script src="js/jquery-isotope.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> 
+    <script src="{% static 'js/jquery.easing.js' %}"></script> 
+    <script src="{% static 'js/jquery-waypoints.js' %}"></script>    
+    <script src="{% static 'js/jquery-validate.js' %}"></script> 
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/numinate.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'js/jquery-isotope.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <!-- Javascript end-->
 
 </body>

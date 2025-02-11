@@ -42,12 +42,11 @@
             <div class="widget_header_wrapper clearfix">
                 <div class="container">
                     <div class="row align-items-center">
-                        {% for set in settings %}
                             <div class="col-xl-3">
                                 <!-- site-branding -->
                                 <div class="site-branding ">
                                     <a class="home-link" href="index.html" title="Fablio" rel="home">
-                                        <img id="logo-img" width="88" class="img-fluid auto_size logo-img" src="{{ set.logo.url }}" alt="logo-img">
+                                        <img id="logo-img" width="88" class="img-fluid auto_size logo-img" src="{{ settings.logo.url }}" alt="logo-img">
                                     </a>
                                 </div><!-- site-branding end -->
                             </div>
@@ -59,7 +58,7 @@
                                         <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-email-2"></i></div>
                                         <div class="widget_content">
                                             <p>Отправить Email</p>
-                                            <h3>{{ set.email }}</h3>
+                                            <h3>{{ settings.email }}</h3>
                                         </div>
                                     </div><!-- widget-info end -->
                                     <!-- widget-info -->
@@ -67,7 +66,7 @@
                                         <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-clock"></i></div>
                                         <div class="widget_content">
                                             <p>Часы работы</p>
-                                            <h3>{{ set.time_to_work }}</h3>
+                                            <h3>{{ settings.time_to_work }}</h3>
                                         </div>
                                     </div><!-- widget-info end -->
                                     <!-- widget-info -->
@@ -75,12 +74,11 @@
                                         <div class="widget_icon ttm-textcolor-skincolor"><i class="flaticon flaticon-phone-call"></i></div>
                                         <div class="widget_content">
                                             <p>По вопросам</p>
-                                            <h3>{{ set.phone1 }}</h3>
+                                            <h3>{{ settings.phone1 }}</h3>
                                         </div>
                                     </div><!-- widget-info end -->
                                 </div><!-- ttm-widget-header end -->
                             </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -109,7 +107,7 @@
                                                     <a href="#cotalog" class="mega-menu-link">Доставка и оплата</a> 
                                                 </li> 
                                                 <li class="mega-menu-item">
-                                                    <a href="#">Контакты</a>
+                                                    <a href="{% url 'contact' %}">Контакты</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -212,10 +210,9 @@
             <section class="ttm-row about-section clearfix">
                 <div class="container">
                     <div class="row">
-                            {% for ww in whowe %}
                             <div class="col-lg-6 col-md-8 col-sm-8">
                                 <div class="ttm_single_image-wrapper">
-                                    <img class="img-fluid auto_size" width="569" height="655" src="{{ ww.img.url }}" alt="single-03">
+                                    <img class="img-fluid auto_size" width="569" height="655" src="{{ whowe.img.url }}" alt="single-03">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12 col-xs-12">
@@ -223,36 +220,35 @@
                                     <!-- section title -->
                                     <div class="section-title">
                                         <div class="title-header">
-                                            <h3>WHO WE ARE</h3>
-                                            <h2 class="title">{{ ww.title }}</h2>
+                                            <h3>{{ whowe.on_title }}</h3>
+                                            <h2 class="title">{{ whowe.title }}<b>{{ whowe.under_title }}</b></h2>
                                         </div>
                                         <div class="title-desc">
-                                            <p>{{ ww.desc }}</p>
+                                            <p>{{ whowe.desc }}</p>
                                         </div>
                                     </div><!-- section title end -->
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <ul class="ttm-list ttm-bordered-lists ttm-list-style-icon ttm-list-icon-color-skincolor ttm-textcolor-darkgrey">
-                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Trends the Current Market</span></li>
-                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">The rayon fabrics wholesaler</span></li>
-                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">The Global fabrics distributor</span></li>
+                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Тенденции текущего рынка</span></li>
+                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Оптовая торговля вискозными тканями</span></li>
+                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Глобальный дистрибьютор тканей</span></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-6">
                                             <ul class="ttm-list ttm-bordered-lists ttm-list-style-icon ttm-list-icon-color-skincolor ttm-textcolor-darkgrey">
-                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Biological tested fabrics</span></li>
-                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Awarded For Best Exporter</span></li>
-                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Stable partner global textile</span></li>
+                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Биологически протестированные ткани</span></li>
+                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Награжден лучшим экспортером</span></li>
+                                                <li><i class="ti ti-check"></i><span class="ttm-list-li-content">Стабильный партнер в сфере текстиля</span></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="margin_top35 res-767-margin_top20">
-                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor margin_right20 margin_top15" href="about-us-2.html">view more</a>
-                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark  margin_top15" href="contact-us.html">contact us</a>
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor margin_right20 margin_top15" href="about-us-2.html">Смотреть больше</a>
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark  margin_top15" href="contact-us.html">Контакты</a>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div><!-- row end -->
                 </div>
             </section>
@@ -266,8 +262,8 @@
                             <!-- section-title -->
                             <div class="section-title title-style-center_text">
                                 <div class="title-header">
-                                    <h3>ОТРАСЛИ & ПРОИЗВОДСТВО</h3>
-                                    <h2 class="title">Этапы работы</h2>
+                                    <h3>{{ stages.on_title }}</h3>
+                                    <h2 class="title">{{ stages.title }}</h2>
                                 </div>
                             </div><!-- section-title end -->
                         </div>
@@ -277,82 +273,27 @@
                         <div class="col-lg-12">
                             <div class="featuredbox-number">
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <!--featured-icon-box-->
-                                        <div class="featured-icon-box icon-align-top-content style5">
-                                            <i class="ttm-num ti-info"></i>
-                                            <div class="featured-icon">
-                                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                                    <i class="flaticon flaticon-textile-1"></i>
+                                    {% for cart in carts_stages %}
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+                                            <!--featured-icon-box-->
+                                            <div class="featured-icon-box icon-align-top-content style5">
+                                                <i class="ttm-num ti-info"></i>
+                                                <div class="featured-icon">
+                                                    <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-md">
+                                                        <img src="{{ cart.icon.url }}" alt="">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h3>Разработка модели</h3>
+                                                <div class="featured-content">
+                                                    <div class="featured-title">
+                                                        <h3>{{ cart.cart_title}}</h3>
+                                                    </div>
+                                                    <div class="featured-desc">
+                                                        <p>{{ cart.desc }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="featured-desc">
-                                                    <p>Вы отправляете фотографию или образец желаемую вами модель. Наши конструкторы разработают лекало вашей модели.</p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <!--featured-icon-box-->
-                                        <div class="featured-icon-box icon-align-top-content style5">
-                                            <i class="ttm-num ti-info"></i>
-                                            <div class="featured-icon">
-                                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                                    <i class="flaticon  flaticon-sewing-machine"></i>
-                                                </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h3>Пошив образца</h3>
-                                                </div>
-                                                <div class="featured-desc">
-                                                    <p>Наши технологии отшивают пробный образец, далее отправляем Вам на одобрение.</p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <!--featured-icon-box-->
-                                        <div class="featured-icon-box icon-align-top-content style5">
-                                            <i class="ttm-num ti-info"></i>
-                                            <div class="featured-icon">
-                                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                                    <i class="flaticon flaticon-silk"></i>
-                                                </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h3>Начало производства</h3>
-                                                </div>
-                                                <div class="featured-desc">
-                                                    <p>После одобрения образца, закупаем ткани и фурнитуры, далее запускаем пошив изделии</p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <!--featured-icon-box-->
-                                        <div class="featured-icon-box icon-align-top-content style5">
-                                            <i class="ttm-num ti-info"></i>
-                                            <div class="featured-icon">
-                                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                                    <i class="flaticon flaticon-moisture-wicking-fabric"></i>
-                                                </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h3>Завершительный этап</h3>
-                                                </div>
-                                                <div class="featured-desc">
-                                                    <p>Отдел ОТК проверяет на брак и упаковывает товар, с последующей отправкой Вам</p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
-                                    </div>
+                                            </div><!-- featured-icon-box end-->
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -585,11 +526,11 @@
                                     <!-- section title -->
                                     <div class="section-title">
                                         <div class="title-header">
-                                            <h3>EXPLORE RECENT WORKS</h3>
-                                            <h2 class="title">We Provide Best <b>Solution For Preparing Your Success</b></h2>
+                                            <h3>{{ text_gallery.on_title }}</h3>
+                                            <h2 class="title">{{ text_gallery.title }} <b>{{ text_gallery.under_title }}</b></h2>
                                         </div>
                                         <div class="title-desc">
-                                            <p>With production sites enhanced by tried and tested fabric collection. This means our clients get exactly what they want, very single time from wide range.</p>
+                                            <p>{{ text_gallery.desc }}</p>
                                         </div>
                                     </div><!-- section title end -->
                                 </div>
@@ -601,138 +542,30 @@
                                 <div class="layer-content">
                                     <div class="ml_160 res-1199-margin_left0">
                                         <div class="row ttm-boxes-spacing-10px slick_slider slick-arrows-style3" data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":true, "autoplay":false, "infinite":true, "responsive": [{"breakpoint":1400,"settings":{"slidesToShow": 4}} , {"breakpoint":1204,"settings":{"slidesToShow": 3}}, {"breakpoint":777,"settings":{"slidesToShow": 2}},                {"breakpoint":575,"settings":{"slidesToShow": 1}}]}'>
-                                            <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
-                                                <div class="featured-imagebox featured-imagebox-portfolio style1">
-                                                    <!-- ttm-box-view-overlay -->
-                                                    <div class="ttm-box-view-overlay">
-                                                        <!-- featured-thumbnail -->
-                                                        <div class="featured-thumbnail">
-                                                            <img class="img-fluid" src="images/portfolio/portfolio-01-600x700.jpg" alt="image">
-                                                        </div><!-- featured-thumbnail end-->
-                                                        <div class="ttm-media-link">
-                                                            <a class="ttm_prettyphoto ttm_image" title="Silk Fabric" data-rel="prettyPhoto" href="images/portfolio/portfolio-01-1200x800.jpg">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                            <a href="silk-fabric.html" class="ttm_link"><i class="fa fa-random"></i></a>
+                                            {% for gall in gallery %}
+                                                <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
+                                                    <div class="featured-imagebox featured-imagebox-portfolio style1">
+                                                        <!-- ttm-box-view-overlay -->
+                                                        <div class="ttm-box-view-overlay">
+                                                            <!-- featured-thumbnail -->
+                                                            <div class="featured-thumbnail">
+                                                                <img class="img-fluid" src="{{ gall.photo }}" alt="image">
+                                                            </div><!-- featured-thumbnail end-->
+                                                            <div class="ttm-media-link">
+                                                                <a class="ttm_prettyphoto ttm_image" title="Silk Fabric" data-rel="prettyPhoto" href="images/portfolio/portfolio-01-1200x800.jpg">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                                <a href="silk-fabric.html" class="ttm_link"><i class="fa fa-random"></i></a>
+                                                            </div>
+                                                        </div><!-- ttm-box-view-overlay end-->
+                                                        <div class="featured-content">
+                                                            <div class="featured-title">
+                                                                <h3><a href="silk-fabric.html">{{ gall.title}}</a></h3>
+                                                            </div>
                                                         </div>
-                                                    </div><!-- ttm-box-view-overlay end-->
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h3><a href="silk-fabric.html">Silk Fabric</a></h3>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
-                                                <div class="featured-imagebox featured-imagebox-portfolio style1">
-                                                    <!-- ttm-box-view-overlay -->
-                                                    <div class="ttm-box-view-overlay">
-                                                        <!-- featured-thumbnail -->
-                                                        <div class="featured-thumbnail">
-                                                            <img class="img-fluid" src="images/portfolio/portfolio-02-600x700.jpg" alt="image">
-                                                        </div><!-- featured-thumbnail end-->
-                                                        <div class="ttm-media-link">
-                                                            <a class="ttm_prettyphoto ttm_image" title="Linen Fabric" data-rel="prettyPhoto" href="images/portfolio/portfolio-02-1200x800.jpg">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                            <a href="linen-fabric.html" class="ttm_link"><i class="fa fa-random"></i></a>
-                                                        </div>
-                                                    </div><!-- ttm-box-view-overlay end-->
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h3><a href="linen-fabric.html">Linen Fabric</a></h3>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
-                                                <div class="featured-imagebox featured-imagebox-portfolio style1">
-                                                    <!-- ttm-box-view-overlay -->
-                                                    <div class="ttm-box-view-overlay">
-                                                        <!-- featured-thumbnail -->
-                                                        <div class="featured-thumbnail">
-                                                            <img class="img-fluid" src="images/portfolio/portfolio-03-600x700.jpg" alt="image">
-                                                        </div><!-- featured-thumbnail end-->
-                                                        <div class="ttm-media-link">
-                                                            <a class="ttm_prettyphoto ttm_image" title="Wool Fabric" data-rel="prettyPhoto" href="images/portfolio/portfolio-03-1200x800.jpg">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                            <a href="wool-fabric.html" class="ttm_link"><i class="fa fa-random"></i></a>
-                                                        </div>
-                                                    </div><!-- ttm-box-view-overlay end-->
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h3><a href="wool-fabric.html">Wool Fabric</a></h3>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
-                                                <div class="featured-imagebox featured-imagebox-portfolio style1">
-                                                    <!-- ttm-box-view-overlay -->
-                                                    <div class="ttm-box-view-overlay">
-                                                        <!-- featured-thumbnail -->
-                                                        <div class="featured-thumbnail">
-                                                            <img class="img-fluid" src="images/portfolio/portfolio-04-600x700.jpg" alt="image">
-                                                        </div><!-- featured-thumbnail end-->
-                                                        <div class="ttm-media-link">
-                                                            <a class="ttm_prettyphoto ttm_image" title="Georgette Fabric" data-rel="prettyPhoto" href="images/portfolio/portfolio-04-1200x800.jpg">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                            <a href="georgette-fabric.html" class="ttm_link"><i class="fa fa-random"></i></a>
-                                                        </div>
-                                                    </div><!-- ttm-box-view-overlay end-->
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h3><a href="georgette-fabric.html">Georgette Fabric</a></h3>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
-                                                <div class="featured-imagebox featured-imagebox-portfolio style1">
-                                                    <!-- ttm-box-view-overlay -->
-                                                    <div class="ttm-box-view-overlay">
-                                                        <!-- featured-thumbnail -->
-                                                        <div class="featured-thumbnail">
-                                                            <img class="img-fluid" src="images/portfolio/portfolio-05-600x700.jpg" alt="image">
-                                                        </div><!-- featured-thumbnail end-->
-                                                        <div class="ttm-media-link">
-                                                            <a class="ttm_prettyphoto ttm_image" title="Leather Material" data-rel="prettyPhoto" href="images/portfolio/portfolio-05-1200x800.jpg">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                            <a href="leather-material.html" class="ttm_link"><i class="fa fa-random"></i></a>
-                                                        </div>
-                                                    </div><!-- ttm-box-view-overlay end-->
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h3><a href="leather-material.html">Leather Material</a></h3>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 col-sm-6 ttm-box-col-wrapper">
-                                                <div class="featured-imagebox featured-imagebox-portfolio style1">
-                                                    <!-- ttm-box-view-overlay -->
-                                                    <div class="ttm-box-view-overlay">
-                                                        <!-- featured-thumbnail -->
-                                                        <div class="featured-thumbnail">
-                                                            <img class="img-fluid" src="images/portfolio/portfolio-06-600x700.jpg" alt="image">
-                                                        </div><!-- featured-thumbnail end-->
-                                                        <div class="ttm-media-link">
-                                                            <a class="ttm_prettyphoto ttm_image" title="Cotton Fabric" data-rel="prettyPhoto" href="images/portfolio/portfolio-06-1200x800.jpg">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                            <a href="cotton-fabric.html" class="ttm_link"><i class="fa fa-random"></i></a>
-                                                        </div>
-                                                    </div><!-- ttm-box-view-overlay end-->
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h3><a href="cotton-fabric.html">Cotton Fabric</a></h3>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
+                                                    </div><!-- featured-icon-box end-->
+                                                </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>

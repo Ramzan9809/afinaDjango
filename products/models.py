@@ -47,7 +47,9 @@ class Advantage(models.Model):
 
 class WhoWe(models.Model):
     img = models.ImageField(upload_to='images/', verbose_name='фото', null=True, blank=True)
+    on_title = models.CharField(max_length=30,null=True, blank=True, verbose_name='Над заголовок')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
+    under_title = models.CharField(max_length=100, null=True, blank=True, verbose_name='Под заголовок')
     desc = RichTextField()
 
     def __str__(self):
@@ -56,3 +58,51 @@ class WhoWe(models.Model):
     class Meta:
         verbose_name_plural = 'Блок "кто мы?"'
         verbose_name = 'Блок "кто мы?"'
+
+class Stages_of_work(models.Model):
+    on_title = models.CharField(max_length=100, verbose_name='Над заголовок')
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = 'Этапы работы'
+        verbose_name = 'Этап работы'
+
+class Carts_for_stages_of_work(models.Model):
+    icon = models.ImageField(upload_to='images/', verbose_name='фото')
+    cart_title = models.CharField(max_length=100, verbose_name='Заголовок для карточки')
+    desc = models.TextField(verbose_name='Описание')
+    
+    def __str__(self):
+        return self.cart_title
+    
+    class Meta:
+        verbose_name_plural = 'Карточки для этапов работы'
+        verbose_name = 'карточка для этапа работы'
+
+
+class Text_gallery(models.Model):
+    on_title = models.CharField(max_length=100, verbose_name='Над заголовок')
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    under_title = models.CharField(max_length=100, null=True, blank=True, verbose_name='Под заголовок')
+    desc = models.TextField(verbose_name='Описание')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = 'Текста для галереи'
+        verbose_name = 'текст для галереи'
+
+class Gallery(models.Model):
+    photo = models.ImageField(upload_to='images/', verbose_name='фото')
+    title = models.CharField(max_length=100, verbose_name='Обозначение')
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = 'Галереи'
+        verbose_name = 'галерея'
