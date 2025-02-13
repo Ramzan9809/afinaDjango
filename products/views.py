@@ -26,4 +26,22 @@ def home(request):
     return render(request, 'index.html', context)
 
 def contact(request):
-    return render(request, 'contact.html')
+    settings = Settings.objects.latest('id')
+    context = {
+        'settings': settings,
+    }
+    return render(request, 'contact.html', context)
+
+def delivery_payment(request):
+    settings = Settings.objects.latest('id')
+    context = {
+        'settings': settings,
+    }
+    return render(request, 'delivery_payment.html', context)
+
+def about_us(request):
+    settings = Settings.objects.latest('id')
+    context = {
+        'settings': settings,
+    }
+    return render(request, 'about_us.html', context)
